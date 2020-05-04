@@ -33,6 +33,5 @@ namespace Pacman
             Score = value;
             HighScoreText.Text = Score.ToString();
         }
-
     }
 }
