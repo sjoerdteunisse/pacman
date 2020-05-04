@@ -99,9 +99,12 @@ namespace Pacman
                 {
                     if (Form1.gameboard.Matrix[y, x] == 15)
                     {
-                        Amount++;
-                        xStart[Amount] = x;
-                        yStart[Amount] = y;
+                        if (GhostAmount != 0)
+                        {
+                            Amount++;
+                            xStart[Amount] = x;
+                            yStart[Amount] = y;
+                        }
                     }
                 }
             }

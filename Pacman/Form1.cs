@@ -48,6 +48,9 @@ namespace Pacman
             // Create Pacman`
             pacman.CreatePacmanImage(this, PacmanStartCoordinates.Item1, PacmanStartCoordinates.Item2);
 
+            //var ghostXPos = ghost.xCoordinate;
+            //var ghostYPos = ghost.yCoordinate;
+            
             RandomMovement rnd = new RandomMovement();
             rnd.Start(pacman);
         }
