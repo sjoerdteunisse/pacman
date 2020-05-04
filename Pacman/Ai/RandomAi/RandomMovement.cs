@@ -2,16 +2,15 @@
 
 namespace Pacman.Ai.RandomAi
 {
-    public class RandomMovement
+    public class RandomMovement : ArtificialMovement
     {
         static System.Windows.Forms.Timer myTimer = new System.Windows.Forms.Timer();
-
-        public void Start(Pacman p) {
-
+        
+        public override void Start(Pacman p)
+        {
             myTimer.Tick += (sender, e) => TimerEventProcessor(sender, e, p);
             myTimer.Interval = 1;
             myTimer.Start();
-
         }
 
         private static void TimerEventProcessor(Object myObject, EventArgs myEventArgs, Pacman p)
@@ -26,8 +25,6 @@ namespace Pacman.Ai.RandomAi
                 case 2: p.nextDirection = 3;  p.MovePacman(3); break;
                 case 3: p.nextDirection = 4; p.MovePacman(4); break;
             }
-
         }
-
     }
 }

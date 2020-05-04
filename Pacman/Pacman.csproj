@@ -79,6 +79,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Ai\ArtificialMovement.cs" />
     <Compile Include="Ai\RandomAi\RandomMovement.cs" />
     <Compile Include="Classes\Audio.cs" />
     <Compile Include="Classes\Food.cs" />
