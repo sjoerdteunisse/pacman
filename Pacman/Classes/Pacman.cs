@@ -144,5 +144,15 @@ namespace Pacman
             yCoordinate = yStart;
             PacmanImage.Location = new Point(xStart * 16 - 3, yStart * 16 + 43);
         }
+
+        public Point[] GetLegalDirections(int x, int y)
+        {
+            Point[] r = new Point[4];
+            r[0] = direction_ok(x, y - 1) ? new Point(x, y - 1) : new Point(-1, -1);
+            r[1] = direction_ok(x + 1, y) ? new Point(x + 1, y) : new Point(-1, -1);
+            r[2] = direction_ok(x, y + 1) ? new Point(x, y + 1) : new Point(-1, -1);
+            r[3] = direction_ok(x - 1, y) ? new Point(x - 1, y) : new Point(-1, -1);
+            return r;
+        }
     }
 }
