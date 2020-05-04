@@ -1,11 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
+﻿using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Pacman
@@ -28,9 +22,7 @@ namespace Pacman
                 {
                     if (Form1.gameboard.Matrix[y,x] == 1 || Form1.gameboard.Matrix[y, x] == 2)
                     {
-                        
                         foodLocations.Add(new Point(x, y));
-
                         FoodImage[y, x] = new PictureBox();
                         FoodImage[y, x].Name = "FoodImage" + Amount.ToString();
                         FoodImage[y, x].SizeMode = PictureBoxSizeMode.AutoSize;
@@ -55,6 +47,8 @@ namespace Pacman
         public void EatFood(int x, int y)
         {
             // Eat food
+            foodLocations.Remove(new Point(x, y));
+
             FoodImage[x, y].Visible = false;
             Form1.gameboard.Matrix[x, y] = 0;
             Form1.player.UpdateScore(FoodScore);
