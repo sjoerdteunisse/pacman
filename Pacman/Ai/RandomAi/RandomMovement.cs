@@ -10,7 +10,7 @@ namespace Pacman.Ai.RandomAi
 
             myTimer.Tick += (sender, e) => TimerEventProcessor(sender, e, p);
             // Sets the timer interval to 5 seconds.
-            myTimer.Interval = 1000;
+            myTimer.Interval = 1;
             myTimer.Start();
 
         }
