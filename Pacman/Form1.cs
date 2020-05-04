@@ -47,9 +47,9 @@ namespace Pacman
 
             // Create Pacman`
             pacman.CreatePacmanImage(this, PacmanStartCoordinates.Item1, PacmanStartCoordinates.Item2);
-            
-            //RandomMovement rnd = new RandomMovement();
-            //rnd.Start(pacman);
+
+            RandomMovement rnd = new RandomMovement();
+            rnd.Start(pacman);
         }
 
         protected override void OnKeyDown(KeyEventArgs e)
