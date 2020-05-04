@@ -13,6 +13,8 @@ namespace Pacman
     public class Food
     {
         public PictureBox[,] FoodImage = new PictureBox[30,27];
+        public List<Point> foodLocations = new List<Point>();
+
         public int Amount = 0;
 
         private const int FoodScore = 10;
@@ -26,6 +28,9 @@ namespace Pacman
                 {
                     if (Form1.gameboard.Matrix[y,x] == 1 || Form1.gameboard.Matrix[y, x] == 2)
                     {
+                        
+                        foodLocations.Add(new Point(x, y));
+
                         FoodImage[y, x] = new PictureBox();
                         FoodImage[y, x].Name = "FoodImage" + Amount.ToString();
                         FoodImage[y, x].SizeMode = PictureBoxSizeMode.AutoSize;
