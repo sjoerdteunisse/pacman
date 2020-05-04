@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Pacman.Ai.RandomAi;
+using System;
 using System.Windows.Forms;
 
 namespace Pacman
@@ -46,6 +47,10 @@ namespace Pacman
 
             // Create Pacman
             pacman.CreatePacmanImage(this, PacmanStartCoordinates.Item1, PacmanStartCoordinates.Item2);
+
+            RandomMovement rnd = new RandomMovement();
+            rnd.Start(pacman);
+
         }
 
         protected override void OnKeyDown(KeyEventArgs e)
