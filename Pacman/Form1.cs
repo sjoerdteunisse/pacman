@@ -1,5 +1,4 @@
 ﻿using Pacman.Ai;
-using Pacman.Ai.AStar;
 using Pacman.Ai.RandomAi;
 using Pacman.Ai.Reinforced;
 using System;
