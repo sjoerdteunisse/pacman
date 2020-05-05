@@ -1,18 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Pacman
 {
     public class Ghost
     {
-        private const int GhostAmount = 4;
+        private const int GhostAmount = 0;
 
         public int Ghosts = GhostAmount;
         private ImageList GhostImages = new ImageList();

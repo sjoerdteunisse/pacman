@@ -1,5 +1,9 @@
-﻿using Pacman.Ai.RandomAi;
+﻿using Pacman.Ai;
+using Pacman.Ai.AStar;
+using Pacman.Ai.RandomAi;
+using Pacman.Ai.Reinforced;
 using System;
+using System.Runtime.CompilerServices;
 using System.Windows.Forms;
 
 namespace Pacman
@@ -12,22 +16,32 @@ namespace Pacman
         public static Ghost ghost = new Ghost();
         public static Player player = new Player();
         public static HighScore highscore = new HighScore();
-        //public static Audio audio = new Audio();
         private static FormElements formelements = new FormElements();
+
 
         public Form1()
         {
             InitializeComponent();
-            SetupGame(1);
+            SetupGame();
+
+            GeneticLearning glr = new GeneticLearning(food, pacman, SetupGame);
+            glr.Start(pacman, formelements, gameboard, food);
         }
 
-        public void SetupGame(int Level)
+        public void SetupGame()
         {
+            food.RemoveFoodImages(this);
+            player = new Player();
+
+            pacman.SetFormElement(formelements);
+
             // Create Game Board
-            gameboard.CreateBoardImage(this, Level);
+            gameboard.CreateBoardImage(this, 1);
 
             // Create Board Matrix
-            Tuple<int, int> PacmanStartCoordinates = gameboard.InitialiseBoardMatrix(Level);
+            Tuple<int, int> PacmanStartCoordinates = gameboard.InitialiseBoardMatrix(1);
+
+            player.RemoveLives(this);
 
             // Create Player
             player.CreatePlayerDetails(this);
@@ -46,14 +60,9 @@ namespace Pacman
             ghost.CreateGhostImage(this);
 
             // Create Pacman`
-            pacman.CreatePacmanImage(this, PacmanStartCoordinates.Item1, PacmanStartCoordinates.Item2);
+            pacman.RemovePacmanImage(this, PacmanStartCoordinates.Item1, PacmanStartCoordinates.Item2);
 
-            var foodloc = food.foodLocations;
-            //var ghostXPos = ghost.xCoordinate;
-            //var ghostYPos = ghost.yCoordinate;
-            
-            RandomMovement rnd = new RandomMovement();
-            rnd.Start(pacman);
+            pacman.CreatePacmanImage(this, PacmanStartCoordinates.Item1, PacmanStartCoordinates.Item2);
         }
 
         protected override void OnKeyDown(KeyEventArgs e)

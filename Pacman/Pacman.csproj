@@ -80,9 +80,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Ai\ArtificialMovement.cs" />
-    <Compile Include="Ai\AStar\SearchLocation.cs" />
     <Compile Include="Ai\RandomAi\RandomMovement.cs" />
-    <Compile Include="Ai\UniformCost\UniformCostSearch.cs" />
+    <Compile Include="Ai\Reinforced\DNA.cs" />
+    <Compile Include="Ai\Reinforced\GeneticAlgorithm.cs" />
+    <Compile Include="Ai\Reinforced\GeneticLearning.cs" />
     <Compile Include="Classes\Audio.cs" />
     <Compile Include="Classes\Food.cs" />
     <Compile Include="Classes\FormElements.cs" />

@@ -15,8 +15,16 @@ namespace Pacman
         public int Lives = 3;
         public Label ScoreText = new Label();
         public PictureBox[] LifeImage = new PictureBox[MaxLives];
+        public Form1 f;
 
-        public void CreateLives(Form formInstance)
+        public void RemoveLives(Form1 formInstance) {
+            foreach (Control lfim in formInstance.Controls) {
+                if (lfim.Name.StartsWith("Life"))
+                    formInstance.Controls.Remove(lfim);
+            }
+        }
+
+        public void CreateLives(Form1 formInstance)
         {
             for(int x = 0; x < MaxLives; x++)
             {
@@ -29,6 +37,8 @@ namespace Pacman
                 LifeImage[x].BringToFront();
             }
             SetLives();
+            
+            f = formInstance;
         }
 
         public void CreatePlayerDetails(Form formInstance)
@@ -84,7 +94,7 @@ namespace Pacman
 
         public void LevelComplete()
         {
-            Application.Exit();
+            f.SetupGame();
         }
     }
 }
